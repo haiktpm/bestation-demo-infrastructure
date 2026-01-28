@@ -3,8 +3,7 @@ module "eks" {
   version                         = "~> 21.0"
   name                            = "bestarion-demo"
   cluster_version                 = "1.33"
-  cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  endpoint_public_access          = true
   addons                          = {
     coredns                       = {}
     kube-proxy                    = {}
