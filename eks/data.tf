@@ -7,7 +7,7 @@ data "aws_vpcs" "vpcs" {
 data "aws_subnets" "all_subnet" {
   filter {
     name   = "vpc-id"
-    values = tolist(data.aws_vpcs.vpcs.ids)[0]
+    values = tolist(data.aws_vpcs.vpcs.ids)
   }
   tags      = {
     App     = "k8s"
@@ -16,7 +16,7 @@ data "aws_subnets" "all_subnet" {
 data "aws_subnets" "private" {
   filter {
     name   = "vpc-id"
-    values = tolist(data.aws_vpcs.vpcs.ids)[0]
+    values = tolist(data.aws_vpcs.vpcs.ids)
   }
   tags      = {
     Type    = "Private"
