@@ -2,7 +2,7 @@ module "eks" {
   source                          = "terraform-aws-modules/eks/aws"
   version                         = "~> 21.0"
   name                            = "bestarion-demo"
-  cluster_version                 = "1.33"
+  kubernetes_version              = "1.33"
   endpoint_public_access          = true
   addons                          = {
     coredns                       = {}
