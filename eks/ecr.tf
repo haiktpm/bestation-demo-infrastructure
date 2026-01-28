@@ -1,4 +1,4 @@
-resource "aws_ecr_repository" "xd-ecr" {
+resource "aws_ecr_repository" "bestarion-demo-ecr" {
   name                 = "bestarion-demo-ecr"
   image_tag_mutability = "MUTABLE"
 
