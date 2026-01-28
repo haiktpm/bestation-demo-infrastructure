@@ -10,7 +10,7 @@ module "eks" {
     vpc-cni                       = {}
   }
   vpc_id                          = tolist(data.aws_vpcs.vpcs.ids)[0]
-  subnet_ids                      = data.aws_subnet_ids.all_subnet.ids
+  subnet_ids                      = data.aws_subnets.all_subnet.ids
   eks_managed_node_groups         = {
     default = {
       ami_type       = "AL2023_x86_64_STANDARD"
