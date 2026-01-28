@@ -7,6 +7,7 @@ module "vpc" {
   private_subnet_tags    = { Type = "Private", App = "k8s"}
   public_subnets         = ["192.168.3.0/24", "192.168.4.0/24"]
   public_subnet_tags     = { Type = "Public", App = "k8s" }
+  map_public_ip_on_launch = true
   enable_nat_gateway     = true
   single_nat_gateway     = true
   one_nat_gateway_per_az = false

@@ -19,6 +19,11 @@ module "eks" {
       instance_types = ["m5.large"]
       min_size     = 1
       max_size     = 2
+      metadata_options = {
+        http_endpoint = "enabled"
+        http_tokens   = "required"
+        http_put_response_hop_limit = 2 # Recommended for security best practices
+      }
     }
   }
   tags = {
