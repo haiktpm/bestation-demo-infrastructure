@@ -2,6 +2,8 @@ module "eks" {
   source                          = "terraform-aws-modules/eks/aws"
   version                         = "~> 21.0"
   name                            = "bestarion-demo"
+  enable_cluster_creator_admin_permissions = true
+  authentication_mode             = "API_AND_CONFIG_MAP"
   kubernetes_version              = "1.33"
   endpoint_public_access          = true
   addons                          = {

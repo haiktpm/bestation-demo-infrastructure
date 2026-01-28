@@ -11,13 +11,32 @@ permissions:
   pull-requests: write
 
 jobs:
+  changes:
+    name: "Detect Changes"
+    runs-on: ubuntu-latest
+    outputs:
+      directories: ${{ steps.filter.outputs.changes }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Path Filter
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            network: 'network/**'
+            eks: 'eks/**'
+
   terraform:
     name: "Terraform"
+    needs: changes
+    if: ${{ needs.changes.outputs.directories != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        directory: [network, eks]
+        directory: ${{ fromJSON(needs.changes.outputs.directories) }}
     
     defaults:
       run:
