@@ -15,8 +15,8 @@ module "vpc" {
   enable_dns_hostnames   = true
   enable_dns_support     = true
   tags                   = {
-    creator              = "bestarion-demo"
-    cost                 = "bestarion-demo"
+    creator              = "bestarion-demos"
+    cost                 = "bestarion-demos"
 }
   
 }
